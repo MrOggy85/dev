@@ -50,53 +50,53 @@ type IpStackResult = {
   /**
    * e.g. 35.44960021972656,
    */
-  "latitude": number;
+  latitude: number;
   /**
    * e.g. 139.63919067382812,
    */
-  "longitude": number;
-  "location": {
+  longitude: number;
+  location: {
     /**
      * e.g. 1848354
      */
-    "geoname_id": number;
+    geoname_id: number;
     /**
      * e.g. "Tokyo",
      */
-    "capital": string;
-    "languages": {
+    capital: string;
+    languages: {
       /**
        * e.g. "ja",
        */
-      "code": string;
+      code: string;
       /**
        * e.g. "Japanese",
        */
-      "name": string;
+      name: string;
       /**
        * e.g. "日本語"
        */
-      "native": string;
+      native: string;
     }[];
 
     /**
      * e.g.  "https://assets.ipstack.com/flags/jp.svg",
      */
-    "country_flag": string;
+    country_flag: string;
     /**
      * e.g.  "🇯🇵",
      */
-    "country_flag_emoji": string;
+    country_flag_emoji: string;
     /**
      * e.g. "U+1F1EF U+1F1F5",
      */
-    "country_flag_emoji_unicode": string;
+    country_flag_emoji_unicode: string;
     /**
      * e.g. "81",
      */
-    "calling_code": string;
+    calling_code: string;
 
-    "is_eu": boolean;
+    is_eu: boolean;
   };
 };
 

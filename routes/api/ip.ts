@@ -100,28 +100,30 @@ type IpStackResult = {
   };
 };
 
-function getKeys<T>(obj: Record<string, any>): (keyof T)[] {
+function getKeys<T>(obj: Record<string, unknown>): (keyof T)[] {
   return Object.keys(obj) as (keyof T)[];
 }
 
-const ipStackAccessKey = Deno.env.get('IPSTACK_ACCESS_KEY')
+const ipStackAccessKey = Deno.env.get("IPSTACK_ACCESS_KEY");
 
 async function getCountry(hostname: string) {
-  const resp = await fetch(`http://api.ipstack.com/${hostname}?access_key=${ipStackAccessKey}`);
+  const resp = await fetch(
+    `http://api.ipstack.com/${hostname}?access_key=${ipStackAccessKey}`,
+  );
   const json = await resp.json() as IpStackResult;
-  let txt = ''
-  getKeys<IpStackResult>(json).forEach(x => {
-    if (x === 'location') {
+  let txt = "";
+  getKeys<IpStackResult>(json).forEach((x) => {
+    if (x === "location") {
       return;
     }
     let value = json[x];
     if (!value) {
-      value = '-'
+      value = "-";
     }
 
-    txt += `${x}: ${value}\n`
-  })
-  return txt
+    txt += `${x}: ${value}\n`;
+  });
+  return txt;
 }
 
 export const handler = async (
